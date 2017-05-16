@@ -2,9 +2,9 @@ version: '3'
 
 services:
   db:
-    image: mysql
-    volumes:
-     - db_data:/home/ybrodsky/mysql
+    build:
+        dockerfile: Dockerfile.db
+        context: .
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: "qtc"
@@ -28,5 +28,3 @@ services:
     ports:
       - "3030:2050"
     restart: always
-volumes:
-    db_data:
